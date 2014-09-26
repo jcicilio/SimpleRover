@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robot Control</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script src="jquery-2.1.1.min.js"></script>
+    <script>
+
+        $("*").keyup(function() {
+            $('#controlFrame')[0].src="/clear";
+        });
+
+        $( "*" ).keydown(function( event ) {
+            if (event.which==65) $('#controlFrame')[0].src="/rotateleft";
+            if (event.which==83) $('#controlFrame')[0].src="/left";
+            if (event.which==70) $('#controlFrame')[0].src="/rotateright";
+            if (event.which==68) $('#controlFrame')[0].src="/right";
+            if (event.which==69) $('#controlFrame')[0].src="/forward";
+            if (event.which==82) $('#controlFrame')[0].src="/reverse";
+       });
+
+    </script>
+</head>
+<body>
+<div class="panel">
+    <h3 class="text-center">Welcome to Robot Control</h3>
+
+    <div class="panel-body">
+
+        <div class="btn-group btn-group-justified">
+            <a class="btn btn-default btn-block btn-lg"  onclick="controlFrame.src='/forward'"a>forward (e)</a>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a class="btn btn-default btn-block btn-lg " onclick="controlFrame.src='/left'"> left (s)</a>
+            <a class="btn btn-default btn-block btn-lg"  onclick="controlFrame.src='/stop'">stop</a>
+            <a class="btn btn-default btn-block btn-lg"  onclick="controlFrame.src='/right'">right (d)</a>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a class="btn btn-default btn-block btn-lg"  onclick="controlFrame.src='/reverse'">reverse (r)</a>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a class="btn btn-default btn-block btn-lg"  onclick="controlFrame.src='/rotateleft'">rotate left (a)</a>
+            <a class="btn btn-default btn-block btn-lg"  onclick="controlFrame.src='/clear'">clear (key up)</a>
+            <a class="btn btn-default btn-block btn-lg"  onclick="controlFrame.src='/rotateright'">rotate right (f)</a>
+        </div>
+
+        <div class="span12">
+            <iframe id="controlFrame" src="/clear"   class="btn btn-default btn-block btn-lg span12"></iframe>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
